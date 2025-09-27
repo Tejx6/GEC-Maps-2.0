@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GEC Campus Navigator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+    <style>
+        /* Pannellum Viewer Customizations */
+        .pnlm-container {
+            font-family: 'Inter', sans-serif;
+        }
+        .pnlm-load-box {
+            background-color: rgba(0, 0, 0, 0.7) !important;
+            border: 1px solid #06b6d4;
+            color: #fff !important;
+        }
+        .pnlm-title-box, .pnlm-author-box {
+            background-color: rgba(0, 0, 0, 0.5) !important;
+        }
+
+        /* --- View-Specific Backgrounds --- */
+        @keyframes gradient-animation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Classic View Background */
+        .view-classic body {
+            background-color: #1a202c; /* Fallback */
+            background: linear-gradient(-45deg, #1a202c, #2d3748, #4a5568, #2c5282);
+            background-size: 400% 400%;
+            animation: gradient-animation 15s ease infinite;
+        }
+        html.dark .view-classic body {
+            background-color: #02041b; /* Fallback */
+            background: linear-gradient(-45deg, #02041b, #0b0f3a, #0d0d2e, #1a0433);
+            background-size: 400% 400%;
+            animation: gradient-animation 15s ease infinite;
+        }
+
+        /* Futuristic View Background */
+        .view-futuristic body {
+            background-color: #0d1117;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            overflow: hidden;
+        }
+
+        /* Animations for Modals and UI feedback */
+        @keyframes fade-in {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .animate-fade-in {
+            animation: fade-in 0.3s ease-out forwards;
+        }
+
+        @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-up {
+            animation: fade-in-up 0.4s ease-out forwards;
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+        .animate-shake {
+            animation: shake 0.5s ease-in-out;
+        }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 640px) {
+            body {
+                font-size: 14px;
+            }
+            .pnlm-title-box, .pnlm-author-box {
+                display: none; /* Hide pannellum title on mobile */
+            }
+        }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "firebase/app": "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js",
+    "firebase/auth": "https://www.gstatic.com/firebasejs/12.3.0/firebase-auth.js",
+    "firebase/firestore": "https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore.js",
+    "firebase/": "https://aistudiocdn.com/firebase@^12.3.0/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
